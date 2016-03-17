@@ -15,10 +15,16 @@ public class FirstApplication {
 
 		Transaction tx = session.beginTransaction();
 
-		Doctor doc = new Doctor(101, "Ramesh", 99898984);
+		Doctor doc1 = new Doctor(103, "Ganesh", 99898934);
 
-		session.save(doc);
+		Integer key = (Integer) session.save(doc1);
 
+		System.out.println("KEY : " + key);
+
+		Doctor doc2 = (Doctor) session.get(Doctor.class, 101);
+
+		System.out.println("DOC2 : " + doc2);
+		
 		tx.commit();
 
 		factory.close();

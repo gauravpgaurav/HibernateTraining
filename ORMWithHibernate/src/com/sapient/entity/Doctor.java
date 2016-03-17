@@ -46,4 +46,9 @@ public class Doctor implements Serializable {
 		this.handPhone = handPhone;
 	}
 
+	@Override
+	public String toString() {
+		return "Doctor [doctorCode=" + doctorCode + ", doctorName=" + doctorName + ", handPhone=" + handPhone + "]";
+	}
+
 }
