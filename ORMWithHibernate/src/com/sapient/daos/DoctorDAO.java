@@ -41,7 +41,7 @@ public class DoctorDAO implements MyDAO<Doctor> {
 		factory = HiberUtils.getFactory();
 		session = factory.openSession();
 		tx = session.beginTransaction();
-		Doctor doc = (Doctor) session.get(Doctor.class, (Serializable) obj);
+		Doctor doc = (Doctor) session.get(Doctor.class, (int) obj);
 		tx.commit();
 		factory.close();
 
@@ -52,10 +52,10 @@ public class DoctorDAO implements MyDAO<Doctor> {
 	public List<Doctor> findAll() {
 		factory = HiberUtils.getFactory();
 		session = factory.openSession();
-		tx = session.beginTransaction();
 
-		List<Doctor> docList = session.createQuery("FROM DOCTOR").list();
-		tx.commit();
+		List<Doctor> docList = session.createQuery("from Doctor").list();
+
+		session.close();
 		factory.close();
 
 		return docList;

@@ -27,7 +27,7 @@ public class HibernateTest {
 		Address add1 = new Address("124", "Sector 21", "Delhi", 110001);
 		Address add2 = new Address("500", "Rohini", "Old Delhi", 110006);
 
-		Doctor doc1 = new Doctor(102, "Suresh", 99898934, add2, add1);
+		Doctor doc1 = new Doctor(103, "Ganesh", 99898934, add1, add2);
 		DoctorDAO dao = new DoctorDAO();
 		int result = (int) dao.add(doc1);
 		System.out.println(result);
