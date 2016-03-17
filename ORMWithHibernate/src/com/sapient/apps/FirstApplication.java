@@ -32,6 +32,9 @@ public class FirstApplication {
 		tx.commit();
 
 		factory.close();
+		
+		
+		
 	}
 
 }
