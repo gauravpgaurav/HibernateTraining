@@ -51,10 +51,10 @@ public class DoctorDAO implements MyDAO<Doctor> {
 	@Override
 	public List<Doctor> findAll() {
 		factory = HiberUtils.getFactory();
-		factory.openSession();
+		session = factory.openSession();
 		tx = session.beginTransaction();
 
-		List<Doctor> docList = session.createQuery("from DOCTOR").list();
+		List<Doctor> docList = session.createQuery("FROM DOCTOR").list();
 		tx.commit();
 		factory.close();
 

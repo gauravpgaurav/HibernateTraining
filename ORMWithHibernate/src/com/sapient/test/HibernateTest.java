@@ -46,11 +46,15 @@ public class HibernateTest {
 	@Test
 	public void testFindAll() {
 
-		DoctorDAO dao = new DoctorDAO();
-		List<Doctor> docList = dao.findAll();
+		try {
+			DoctorDAO dao = new DoctorDAO();
+			List<Doctor> docList = dao.findAll();
 
-		for (Doctor doc : docList) {
-			System.out.println(doc);
+			for (Doctor doc : docList) {
+				System.out.println(doc);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
