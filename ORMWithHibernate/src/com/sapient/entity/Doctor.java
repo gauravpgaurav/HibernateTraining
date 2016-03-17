@@ -10,16 +10,22 @@ public class Doctor implements Serializable {
 
 	private long handPhone;
 
+	private Address residenceAddress;
+
+	private Address workAddress;
+
 	// ZERO Argument Constructor
 	public Doctor() {
 		super();
 	}
 
-	public Doctor(int doctorCode, String doctorName, long handPhone) {
+	public Doctor(int doctorCode, String doctorName, long handPhone, Address residenceAddress, Address workAddress) {
 		super();
 		this.doctorCode = doctorCode;
 		this.doctorName = doctorName;
 		this.handPhone = handPhone;
+		this.residenceAddress = residenceAddress;
+		this.workAddress = workAddress;
 	}
 
 	public int getDoctorCode() {
@@ -46,9 +52,26 @@ public class Doctor implements Serializable {
 		this.handPhone = handPhone;
 	}
 
+	public Address getResidenceAddress() {
+		return residenceAddress;
+	}
+
+	public void setResidenceAddress(Address residenceAddress) {
+		this.residenceAddress = residenceAddress;
+	}
+
+	public Address getWorkAddress() {
+		return workAddress;
+	}
+
+	public void setWorkAddress(Address workAddress) {
+		this.workAddress = workAddress;
+	}
+
 	@Override
 	public String toString() {
-		return "Doctor [doctorCode=" + doctorCode + ", doctorName=" + doctorName + ", handPhone=" + handPhone + "]";
+		return "Doctor [doctorCode=" + doctorCode + ", doctorName=" + doctorName + ", handPhone=" + handPhone
+				+ ", residenceAddress=" + residenceAddress + ", workAddress=" + workAddress + "]";
 	}
 
 }

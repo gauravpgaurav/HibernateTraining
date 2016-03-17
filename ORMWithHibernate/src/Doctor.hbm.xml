@@ -3,16 +3,35 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Mar 17, 2016 10:44:59 AM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="com.sapient.entity.Doctor" table="DOCTOR">
-        <id name="doctorCode" type="int">
-            <column name="DOCTORCODE" />
-            <generator class="assigned" />
-        </id>
-        <property name="doctorName" type="java.lang.String">
-            <column name="DOCTORNAME" />
-        </property>
-        <property name="handPhone" type="long">
-            <column name="HANDPHONE" />
-        </property>
-    </class>
+	<class name="com.sapient.entity.Doctor" table="DOCTOR">
+		<id name="doctorCode" type="int">
+			<column name="DOCTORCODE" />
+			<generator class="assigned" />
+		</id>
+		<property name="doctorName" type="java.lang.String">
+			<column name="DOCTORNAME" />
+		</property>
+		<property name="handPhone" type="long">
+			<column name="HANDPHONE" />
+		</property>
+
+		<component name="residenceAddress" class="com.sapient.entity.Address">
+
+			<property name="addrLine1" type="java.lang.String" column="RESI_ADDLINE1"></property>
+			<property name="addrLine2" type="java.lang.String" column="RESI_ADDLINE2"></property>
+			<property name="city" type="java.lang.String" column="RESI_CITY"></property>
+			<property name="pinCode" type="integer" column="RESI_PINCODE"></property>
+
+		</component>
+
+		<component name="workAddress" class="com.sapient.entity.Address">
+
+			<property name="addrLine1" type="java.lang.String" column="WORK_ADDLINE1"></property>
+			<property name="addrLine2" type="java.lang.String" column="WORK_ADDLINE2"></property>
+			<property name="city" type="java.lang.String" column="WORK_CITY"></property>
+			<property name="pinCode" type="integer" column="WORK_PINCODE"></property>
+
+		</component>
+
+	</class>
 </hibernate-mapping>
