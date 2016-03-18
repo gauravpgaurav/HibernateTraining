@@ -15,6 +15,8 @@ public class Doctor implements Serializable {
 
 	private Address workAddress;
 
+	private ClinicalAssistant assistant;
+
 	// ZERO Argument Constructor
 	public Doctor() {
 		super();
@@ -67,6 +69,14 @@ public class Doctor implements Serializable {
 
 	public void setWorkAddress(Address workAddress) {
 		this.workAddress = workAddress;
+	}
+
+	public ClinicalAssistant getAssistant() {
+		return assistant;
+	}
+
+	public void setAssistant(ClinicalAssistant assistant) {
+		this.assistant = assistant;
 	}
 
 	@Override

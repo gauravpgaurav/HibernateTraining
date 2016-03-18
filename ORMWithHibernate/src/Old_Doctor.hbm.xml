@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 18, 2016 12:09:40 PM by Hibernate Tools 3.5.0.Final -->
+<!-- Generated Mar 17, 2016 10:44:59 AM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
 	<class name="com.sapient.entity.Doctor" table="DOCTOR">
 		<id name="doctorCode" type="int">
@@ -14,6 +14,7 @@
 		<property name="handPhone" type="long">
 			<column name="HANDPHONE" />
 		</property>
+
 		<component name="residenceAddress" class="com.sapient.entity.Address">
 
 			<property name="addrLine1" type="java.lang.String" column="RESI_ADDLINE1"></property>
@@ -32,9 +33,5 @@
 
 		</component>
 
-		<many-to-one name="assistant" class="com.sapient.entity.ClinicalAssistant"
-			fetch="join" unique="true" cascade="all">
-			<column name="ASSISTANT" />
-		</many-to-one>
 	</class>
 </hibernate-mapping>
