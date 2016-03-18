@@ -18,7 +18,7 @@ public class DoctorDAO implements MyDAO<Doctor> {
 	Transaction tx;
 
 	@Override
-	public Object add(Doctor doc) {
+	public Serializable add(Doctor doc) {
 
 		Integer key = null;
 		try {
@@ -36,7 +36,7 @@ public class DoctorDAO implements MyDAO<Doctor> {
 	}
 
 	@Override
-	public Doctor find(Object obj) {
+	public Doctor find(Serializable obj) {
 
 		factory = HiberUtils.getFactory();
 		session = factory.openSession();
@@ -62,15 +62,31 @@ public class DoctorDAO implements MyDAO<Doctor> {
 	}
 
 	@Override
-	public Doctor update(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+	public Doctor update(Doctor obj) {
+
+		factory = HiberUtils.getFactory();
+		session = factory.openSession();
+		tx = session.beginTransaction();
+		session.update(obj);
+		tx.commit();
+		session.close();
+		factory.close();
+
+		return obj;
 	}
 
 	@Override
-	public boolean delete(Object obj) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delete(Serializable obj) {
+
+		factory = HiberUtils.getFactory();
+		session = factory.openSession();
+		tx = session.beginTransaction();
+		session.delete((Doctor) session.get(Doctor.class, (Integer) obj));
+		tx.commit();
+		session.close();
+		factory.close();
+
+		return true;
 	}
 
 }

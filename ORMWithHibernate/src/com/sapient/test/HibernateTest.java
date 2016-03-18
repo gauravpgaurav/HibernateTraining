@@ -57,4 +57,33 @@ public class HibernateTest {
 			e.printStackTrace();
 		}
 	}
+
+	@Test
+	public void testDelete() {
+
+		try {
+			DoctorDAO dao = new DoctorDAO();
+			dao.delete(102);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void testUpdate() {
+
+		try {
+			DoctorDAO dao = new DoctorDAO();
+			Address add1 = new Address("124", "Sector 21", "Delhi", 110001);
+			Address add2 = new Address("500", "Rohini", "Old Delhi", 110006);
+			Doctor doc = new Doctor(103, "Suresh", 123456789, add1, add2);
+
+			doc = dao.update(doc);
+
+			System.out.println(doc);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
