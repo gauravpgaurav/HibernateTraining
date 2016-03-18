@@ -36,5 +36,13 @@
 			fetch="join" unique="true" cascade="all">
 			<column name="ASSISTANT" />
 		</many-to-one>
+
+		<set name="patientList" table="PATIENT" inverse="false" lazy="true"
+			cascade="all">
+			<key>
+				<column name="DOCTORCODE"></column>
+			</key>
+			<one-to-many class="com.sapient.entity.Patient" />
+		</set>
 	</class>
 </hibernate-mapping>

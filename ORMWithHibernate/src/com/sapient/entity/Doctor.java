@@ -1,6 +1,7 @@
 package com.sapient.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @SuppressWarnings("serial")
 public class Doctor implements Serializable {
@@ -16,6 +17,8 @@ public class Doctor implements Serializable {
 	private Address workAddress;
 
 	private ClinicalAssistant assistant;
+
+	private Set<Patient> patientList;
 
 	// ZERO Argument Constructor
 	public Doctor() {
@@ -77,6 +80,14 @@ public class Doctor implements Serializable {
 
 	public void setAssistant(ClinicalAssistant assistant) {
 		this.assistant = assistant;
+	}
+
+	public Set<Patient> getPatientList() {
+		return patientList;
+	}
+
+	public void setPatientList(Set<Patient> patientList) {
+		this.patientList = patientList;
 	}
 
 	@Override
