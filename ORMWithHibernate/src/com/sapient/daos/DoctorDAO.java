@@ -53,6 +53,7 @@ public class DoctorDAO implements MyDAO<Doctor> {
 		factory = HiberUtils.getFactory();
 		session = factory.openSession();
 
+		@SuppressWarnings("unchecked")
 		List<Doctor> docList = session.createQuery("from Doctor").list();
 
 		session.close();
